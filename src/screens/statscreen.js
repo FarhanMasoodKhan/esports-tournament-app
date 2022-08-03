@@ -1,32 +1,25 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, Button } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 
 
-const StatScreen = ()  =>{
+const StatScreen = ({navigation})  =>{
     
   return (
-    <View style={styles.MainContainer}>
-    <Text style={styles.Heading}>Stat Screen</Text>
-    </View>
+    <View style={styles.HomeScreenView}>
+    <Text>Stat Screen</Text>
+    <Button 
+    onPress={()=> navigation.navigate('Home')} 
+      title="Go to Home"/>
+   </View>
   )
 }
 
 
 const styles = StyleSheet.create({
-    MainContainer:{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'black',
-        padding: 20,
-    },
-    Heading:{
-        color: 'white',
-        fontSize: 30,
-    }
+
 })
 
 
