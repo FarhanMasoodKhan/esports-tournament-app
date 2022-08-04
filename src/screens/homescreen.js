@@ -1,23 +1,21 @@
 import React , {useState} from 'react'
-import { View, Text, StyleSheet, ScrollView , Image, Pressable, Modal,TextInput, TouchableOpacity, Button} from 'react-native'
-import {createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { View, Text, StyleSheet, ScrollView , Image, Pressable, Modal,TextInput, TouchableOpacity,} from 'react-native'
 
-const Tab = createBottomTabNavigator();
+const HomeScreen = ()  =>{
 
-const HomeScreen = ({navigation})  =>{
 
 const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.HomeScreenContainer}>
-    <ScrollView style={styles.ScrollContainer}
+      <ScrollView style={styles.ScrollContainer}
           showsVerticalScrollIndicator={false}>
-      <Modal
-        animationType="fade"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}>
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            setModalVisible(!modalVisible);
+          }}>
 
         <View style={styles.ModelBoxContainer}>
         <Image style = {styles.RoundModelImage}
@@ -29,29 +27,40 @@ const [modalVisible, setModalVisible] = useState(false);
             style={styles.CrossIconImage}
           />
         </Pressable>
-      <View style={styles.ModelBox}>
-        <View style={styles.ModelInputs}>
-          <TextInput style={styles.placeholder} 
-          placeholder="User Name"/>
-          <TextInput style={styles.placeholder}
-          placeholder="Game ID"/>
+          <View style={styles.ModelBox}>
+            <View style={styles.ModelInputs}>
+              <TextInput style={styles.placeholder} 
+              placeholder="User Name"/>
+              <TextInput style={styles.placeholder}
+              placeholder="Game ID"/>
+              </View>
+
+              <View style = {styles.PoolButton}>
+
+              <TouchableOpacity style={styles.Pool1}>
+              <Text>Pool 1</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.Pool2}>
+              <Text>Pool 2</Text>
+              </TouchableOpacity>
+              </View>
+              
           </View>
+      </View>
+    </Modal>
 
-          <View style = {styles.PoolButton}>
 
-          <TouchableOpacity style={styles.Pool1}>
-          <Text>Pool 1</Text>
-          </TouchableOpacity>
+    
 
-          <TouchableOpacity style={styles.Pool2}>
-          <Text>Pool 2</Text>
-          </TouchableOpacity>
-
-          </View>
-
-          </View>
-        </View>
-      </Modal>
+      <Pressable style={styles.GameContainer}
+        onPress={() => setModalVisible(true)}> 
+        <Image source={require('../../assets/images/nfs2.jpg')} 
+        style={styles.GameImage}
+        />
+        <Text style={styles.GameText}
+        >Play Now</Text>
+        </Pressable>
 
       <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
@@ -126,7 +135,6 @@ const [modalVisible, setModalVisible] = useState(false);
         <Text style={styles.GameText}
         >Starts in 26:03</Text>
         </Pressable>
-
       </ScrollView>
     </View>
   );
@@ -167,6 +175,11 @@ const styles = StyleSheet.create({
   },
 
 //  MODEL BOX STYLES
+
+Bannercontainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
 
   ModelBoxContainer:{
     width: '65%',
