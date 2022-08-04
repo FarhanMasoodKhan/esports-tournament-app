@@ -1,26 +1,26 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet, Button } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 
 
-const StatScreen = ({navigation})  =>{
+const AwardScreen = ({navigation})  =>{
     
   return (
     <View style={styles.HomeScreenView}>
-    <Text>Stat Screen</Text>
+    <Text>Awards Screen</Text>
     <Button 
-    onPress={()=> navigation.navigate('Home')} 
-      title="Go to Home"/>
+    onPress={()=> navigation.navigate('Stats')} 
+      title="Go to Stats"/>
    </View>
   )
 }
 
 
 const styles = StyleSheet.create({
-
+   
 })
 
 
-export default StatScreen;
+export default AwardScreen;

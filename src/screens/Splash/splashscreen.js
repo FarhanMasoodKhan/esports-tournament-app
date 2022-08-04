@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, ImageBackground} from 'react-native'
+import { View, Text, StyleSheet, ImageBackground} from 'react-native'
 import React from 'react'
 
 
@@ -8,7 +8,7 @@ const SplashScreen = () => {
 
         <View style = {styles.IMGcontainer}>
             <ImageBackground  style = {styles.IMGcontainer}
-            source={require('../../assets/logos/6.png')}
+            source={require('../../../assets/logos/6.png')}
             />
         </View>
 

@@ -10,7 +10,7 @@ const swiper = () => {
        <View style = {styles.slidecontainer} >
        <View style={{resizeMode: "contain",height: 300,width: 300}}>
                 <ImageBackground style={{resizeMode: "contain",height: 300,width: 300}}
-            source={require('../../assets/vectors/1.png')}/>
+            source={require('../../../assets/vectors/1.png ')}/>
         </View>
 
          <View style = {styles.HeadingContainer}>
@@ -23,7 +23,7 @@ const swiper = () => {
        <View style = {styles.slidecontainer} >
             <View style={{resizeMode: "contain",height: 300,width: 300}}>
                 <ImageBackground style={{resizeMode: "contain",height: 300,width: 300}}
-                source={require('../../assets/vectors/4.png')}/>
+                source={require('../../../assets/vectors/4.png')}/>
             </View>
 
             <View style = {styles.HeadingContainer}>
@@ -36,7 +36,7 @@ const swiper = () => {
         <View style = {styles.slidecontainer} >
         <View style={{resizeMode: "contain",height: 400,width: 400}}>
                 <ImageBackground style={{resizeMode: "contain",height: 400,width: 400}}
-                    source={require('../../assets/vectors/9.png')}/>
+                    source={require('../../../assets/vectors/9.png')}/>
             </View>
 
             <View style = {styles.HeadingContainer}>

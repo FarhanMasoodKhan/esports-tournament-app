@@ -19,11 +19,11 @@ const [modalVisible, setModalVisible] = useState(false);
 
         <View style={styles.ModelBoxContainer}>
         <Image style = {styles.RoundModelImage}
-        source={require('../../assets/images/pubg.png')}
+        source={require('../../../assets/images/pubg.png')}
         />
         <Pressable  style={styles.CrossIcon}
           onPress={() => setModalVisible(!modalVisible)}>
-          <Image source={require('../../assets/icons/cross.png')}
+          <Image source={require('../../../assets/icons/cross.png')}
             style={styles.CrossIconImage}
           />
         </Pressable>
@@ -55,7 +55,7 @@ const [modalVisible, setModalVisible] = useState(false);
 
       <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
-        <Image source={require('../../assets/images/nfs2.jpg')} 
+        <Image source={require('../../../assets/images/nfs2.jpg')} 
         style={styles.GameImage}
         />
         <Text style={styles.GameText}
@@ -64,7 +64,7 @@ const [modalVisible, setModalVisible] = useState(false);
 
       <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
-        <Image source={require('../../assets/images/nfs2.jpg')} 
+        <Image source={require('../../../assets/images/nfs2.jpg')} 
         style={styles.GameImage}
         />
         <Text style={styles.GameText}
@@ -73,7 +73,7 @@ const [modalVisible, setModalVisible] = useState(false);
 
         <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
-        <Image source={require('../../assets/images/pubg.png')} 
+        <Image source={require('../../../assets/images/pubg.png')} 
         style={styles.GameImage}
         />
         <Text style={styles.GameText}
@@ -82,7 +82,7 @@ const [modalVisible, setModalVisible] = useState(false);
 
         <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
-        <Image source={require('../../assets/images/carrace1.jpg')} 
+        <Image source={require('../../../assets/images/carrace1.jpg')} 
         style={styles.GameImage}
         />
         <Text style={styles.GameText}
@@ -91,7 +91,7 @@ const [modalVisible, setModalVisible] = useState(false);
 
         <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
-        <Image source={require('../../assets/images/pubgm.jpg')} 
+        <Image source={require('../../../assets/images/pubgm.jpg')} 
         style={styles.GameImage}
         />
         <Text style={styles.GameText}
@@ -100,7 +100,7 @@ const [modalVisible, setModalVisible] = useState(false);
 
         <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
-        <Image source={require('../../assets/images/nfs2.jpg')} 
+        <Image source={require('../../../assets/images/nfs2.jpg')} 
         style={styles.GameImage}
         />
         <Text style={styles.GameText}
@@ -109,7 +109,7 @@ const [modalVisible, setModalVisible] = useState(false);
 
         <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
-        <Image source={require('../../assets/images/carrace2.jpg')} 
+        <Image source={require('../../../assets/images/carrace2.jpg')} 
         style={styles.GameImage}
         />
         <Text style={styles.GameText}
@@ -119,7 +119,7 @@ const [modalVisible, setModalVisible] = useState(false);
 
         <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
-        <Image source={require('../../assets/images/pubg.png')} 
+        <Image source={require('../../../assets/images/pubg.png')} 
         style={styles.GameImage}
         />
         <Text style={styles.GameText}
@@ -129,7 +129,7 @@ const [modalVisible, setModalVisible] = useState(false);
 
         <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
-        <Image source={require('../../assets/images/carrace3.webp')} 
+        <Image source={require('../../../assets/images/carrace3.webp')} 
         style={styles.GameImage}
         />
         <Text style={styles.GameText}
