@@ -1,10 +1,15 @@
 import React , {useState} from 'react'
 import { View, Text, StyleSheet, ScrollView , Image, Pressable, Modal,TextInput, TouchableOpacity,} from 'react-native'
 
-const HomeScreen = ()  =>{
+const HomeScreen = ({navigation})  =>{
 
 
 const [modalVisible, setModalVisible] = useState(false);
+
+const toggleModal = () =>
+         {setModalVisible(!modalVisible);
+      };
+
   return (
     <View style={styles.HomeScreenContainer}>
       <ScrollView style={styles.ScrollContainer}
@@ -35,14 +40,11 @@ const [modalVisible, setModalVisible] = useState(false);
               placeholder="Game ID"/>
               </View>
 
-              <View style = {styles.PoolButton}>
-
-              <TouchableOpacity style={styles.Pool1}>
-              <Text>Pool 1</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.Pool2}>
-              <Text>Pool 2</Text>
+              <View style = {styles.RegisterButton}>
+              <TouchableOpacity 
+                onPress={() => { navigation.navigate("Game1")
+                toggleModal();}}>
+              <Text style={styles.RegisterBtn}>Register</Text>
               </TouchableOpacity>
               </View>
               
@@ -54,7 +56,7 @@ const [modalVisible, setModalVisible] = useState(false);
     
 
       <Pressable style={styles.GameContainer}
-        onPress={() => setModalVisible(true)}> 
+        onPress={() => setModalVisible(true)}>
         <Image source={require('../../../assets/images/nfs2.jpg')} 
         style={styles.GameImage}
         />
@@ -197,9 +199,10 @@ Bannercontainer: {
 
 
   RoundModelImage:{
-    top: -100,
+    top: -80,
     height: '20%',
     width: '30%',
+    border: '2px solid black',
     borderRadius: '100%',
   },
 
@@ -226,26 +229,22 @@ Bannercontainer: {
     backgroundColor : 'white',
   },
 
-  PoolButton:{
+  RegisterButton:{
     flexDirection:'row',
     justifyContent: 'center',
     alignItems: 'center',
     gap: '15px',
     paddingVertical: 10,
     paddingHorizontal: 10,
-    },
-
-    Pool1:{
+  }, 
+  RegisterBtn:{
       paddingVertical: 7,
-      paddingHorizontal: 10,
-      borderRadius: 50,
-      backgroundColor : '#FFB85D',
-    },
-    Pool2:{
-      paddingVertical: 7,
-      paddingHorizontal: 10,
-      borderRadius: 50,
-      backgroundColor : '#FFB85D',
+      paddingHorizontal: 14,
+      borderRadius: 30,
+      fontWeight: '600',
+      textTransform: 'uppercase',
+      backgroundColor: '#FF5412',
+      color:'white',
     },
 
 });

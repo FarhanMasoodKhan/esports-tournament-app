@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet, Image} from 'react-native';
 
 import { NavigationContainer} from '@react-navigation/native';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -9,10 +9,9 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import HomeScreen from './src/screens/Home/homescreen';
 import AwardScreen from './src/screens/Award/awardscreen';
 import StatScreen from './src/screens/Stat/statscreen';
-import RoomOne from './src/screens/Rooms/RoomOne/RoomOne';
-import RoomTwo from './src/screens/Rooms/RoomTwo/RoomTwo';
-
-
+import SquadA from './src/screens/Rooms/RoomOne/Game1';
+import SquadB from './src/screens/Rooms/RoomTwo/Game1';
+import List1 from './src/screens/Rooms/RoomOne/List1';
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -24,20 +23,21 @@ const App =()=> {
   return (
     <NavigationContainer>
   <Tab.Navigator
-   initialRouteName='RoomOne'  // --->  'Home'
+   initialRouteName='List1'  // --->  'Home'
     screenOptions={{ 
       tabBarStyle: { backgroundColor: '#FF5412', height: '50px'},
       tabBarLabelStyle : { color: '#FFFFFF', fontSize:15, fontWeight  : 'bold', fontFamily: 'Roboto'},
       tabBarIconStyle : { color:  '#FFFFFF'},
       }}>
-
+      
       {/* Just for Room Screen */}
-    <Tab.Screen name="RoomOne" component={RoomOne}
+    <Tab.Screen name="List1" component={List1}
       options={{ 
         tabBarIcon: () => <BottomIcons name="trophy" />,
         headerTintColor: 'white',
         title: '',
-        headerStyle: {backgroundColor: '#FF5412'}
+        headerStyle: {backgroundColor: '#FF5412',} 
+
         }}
         />
       {/* -------------------------------------- */}
