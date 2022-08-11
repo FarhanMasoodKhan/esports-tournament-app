@@ -1,7 +1,8 @@
 # esports-tournament-app-UI : Codeaza Technology
 Mobile Games Tournament Application | React native - Expo
 
-Designed Idea: (Samreen UX/UI Designer)
+Designed Idea:
+
 https://www.figma.com/file/reuCm85Et5Rskin1BqmA0g/E-Sports?node-id=0%3A1
 
 Icon:
