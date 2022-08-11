@@ -1,7 +1,8 @@
 import React, {useRef, useState} from 'react'
-import { View, Text, StyleSheet, Image} from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import List1 from './List1';
+import List2 from './List2';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,16 +17,18 @@ const SquadA =( )=> {
         <View style={styles.TitleContainer}>
             <Text style={styles.PUBGTitle}>Room : 1</Text>
         </View>
-      
-        <List1/>
-        <View style={styles.PUBGList1}>
-            <Text>List 1</Text>
-          
-        </View>
 
-        <View style={styles.PUBGIconContainer}>
-            <Text style={styles.Text}>Squad Two</Text>
-        </View>
+        <ScrollView
+        showsVerticalScrollIndicator={false}
+        >
+            <View>
+                <List1/>  
+            </View>
+            <View>
+                <List2/>  
+            </View>
+        </ScrollView>
+
     </View>
     
   )
@@ -38,7 +41,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor:'black',
         color:  '#FFFFFF',
-        alignItems: 'center',
+        paddingHorizontal: 30,
     },
     Text:{
         color: '#FFFFFF',
@@ -60,11 +63,6 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: 'bold',
      },
-     PUBGList1:{
-        alignItems: 'center',
-        backgroundColor: '#FFFFFF',
-        justifyContent: 'center',
-     }
 
 });
 

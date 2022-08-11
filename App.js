@@ -23,7 +23,7 @@ const App =()=> {
   return (
     <NavigationContainer>
   <Tab.Navigator
-   initialRouteName='List1'  // --->  'Home'
+   initialRouteName='Game2'  // --->  'Home'
     screenOptions={{ 
       tabBarStyle: { backgroundColor: '#FF5412', height: '50px'},
       tabBarLabelStyle : { color: '#FFFFFF', fontSize:15, fontWeight  : 'bold', fontFamily: 'Roboto'},
@@ -31,22 +31,22 @@ const App =()=> {
       }}>
       
       {/* Just for Room Screen */}
-    <Tab.Screen name="List1" component={List1}
+    <Tab.Screen name="Game2" component={SquadB}
       options={{ 
         tabBarIcon: () => <BottomIcons name="trophy" />,
         headerTintColor: 'white',
         title: '',
         headerStyle: {backgroundColor: '#FF5412',} 
-
         }}
         />
       {/* -------------------------------------- */}
 
-      <Tab.Screen name="Awards" component={AwardScreen}
+      <Tab.Screen name="Tournaments" component={AwardScreen}
         options={{
-          tabBarIcon: () => <BottomIcons name="trophy" />,
-          tabBarLabel: 'Awards',
-          title: 'Awards', 
+          tabBarIcon: () => <BottomIcons 
+          name="game-controller" />,
+          tabBarLabel: 'Tournaments',
+          title: 'Tournaments', 
           headerTintColor: 'white',
           headerStyle: {backgroundColor: '#FF5412'}
           }} />
@@ -56,7 +56,7 @@ const App =()=> {
         options={{
           tabBarIcon: () => <BottomIcons name="home" />,
           tabBarLabel: 'DashBoard',
-          title: 'DashBoard', 
+          title: 'Home',
           headerTintColor: 'white',
           headerStyle: {backgroundColor: '#FF5412'},
           }}/>
@@ -70,6 +70,10 @@ const App =()=> {
           headerTintColor: 'white',
           headerStyle: {backgroundColor: '#FF5412'}
           }}/>
+
+          
+      {/* <Tab.Screen name="Game1" component={SquadA}/> */}
+
     </Tab.Navigator>
     </NavigationContainer>
     

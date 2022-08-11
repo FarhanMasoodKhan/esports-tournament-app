@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Image, FlatList} from 'react-native';
  
 
-const ListData1 = [
+const ListData3 = [
     { 
         id: "0",
         Image: 'https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000',
@@ -34,10 +34,10 @@ const ListData1 = [
 ];
 
 
-const  List1 = () => {
+const  List3 = () => {
 return (
     <FlatList  style={styles.FlatlistContainer}
-     data={ListData1}  
+     data={ListData3}  
      renderItem={({item}) => (
        <>
     <View style={styles.squadA}>
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     },
 
     MainViewContainer:{
-        backgroundColor: '#489A16',
+        backgroundColor: '#FFA500',
         marginVertical: 8,
         padding: 10,
         borderRadius: 30,
@@ -93,4 +93,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default List1;
+export default List3;
