@@ -12,6 +12,7 @@ import StatScreen from './src/screens/Stat/statscreen';
 import SquadA from './src/screens/Rooms/RoomOne/Game1';
 import SquadB from './src/screens/Rooms/RoomTwo/Game1';
 import List1 from './src/screens/Rooms/RoomOne/List1';
+import { NativeStackView } from '@react-navigation/native-stack';
 
 // const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -20,10 +21,11 @@ const Tab = createBottomTabNavigator();
 
 
 const App =()=> {
-  return (
+  return (    
+
     <NavigationContainer>
   <Tab.Navigator
-   initialRouteName='Game2'  // --->  'Home'
+   initialRouteName='Home'  // --->  'Home'
     screenOptions={{ 
       tabBarStyle: { backgroundColor: '#FF5412', height: '50px'},
       tabBarLabelStyle : { color: '#FFFFFF', fontSize:15, fontWeight  : 'bold', fontFamily: 'Roboto'},
@@ -31,14 +33,14 @@ const App =()=> {
       }}>
       
       {/* Just for Room Screen */}
-    <Tab.Screen name="Game2" component={SquadB}
+    {/* <Tab.Screen name="Game2" component={SquadB}
       options={{ 
         tabBarIcon: () => <BottomIcons name="trophy" />,
         headerTintColor: 'white',
         title: '',
         headerStyle: {backgroundColor: '#FF5412',} 
         }}
-        />
+        /> */}
       {/* -------------------------------------- */}
 
       <Tab.Screen name="Tournaments" component={AwardScreen}
@@ -54,11 +56,9 @@ const App =()=> {
 
       <Tab.Screen name="Home" component={HomeScreen} 
         options={{
+          headerShown: false,
           tabBarIcon: () => <BottomIcons name="home" />,
           tabBarLabel: 'DashBoard',
-          title: 'Home',
-          headerTintColor: 'white',
-          headerStyle: {backgroundColor: '#FF5412'},
           }}/>
 
 
