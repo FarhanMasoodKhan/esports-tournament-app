@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, {} from 'react'
 import { View, Text, StyleSheet, Image, ScrollView} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import List1 from './List1';
@@ -6,7 +6,7 @@ import List2 from './List2';
 
 const Tab = createBottomTabNavigator();
 
-const SquadA =( )=> {
+const SquadA =({navigation})=> {
     return (
     <View style={styles.RoomOneContainer}>
         <View style={styles.PUBGIconContainer}>

@@ -1,9 +1,8 @@
-import React , {useState, Component, useRef   } from 'react'
+import React , {useState, useRef, setState} from 'react'
 import { View, Text, StyleSheet, ScrollView , Image, Pressable, Modal,TextInput, TouchableOpacity,  ImageBackground,
 Animated, useWindowDimensions} from 'react-native'
 import { Appbar } from 'react-native-paper';
 import Ionicons from "react-native-vector-icons/Ionicons";
-
 
 const HomeScreen = ({navigation})  =>{
   
@@ -12,15 +11,22 @@ const _filter = () => {
     }
  
 const [modalVisible, setModalVisible] = useState(false);
-const [Profile, setProfile] = useState(false);
+const toggleModal = () =>
+         {setModalVisible(!modalVisible);
+      };
 
+const [Profile, setProfile] = useState(false);
 const toggleProfile = () =>
          {setModalVisible(!Profile);
       };
 
-const toggleModal = () =>
-         {setModalVisible(!modalVisible);
-      };
+const [Congrats, setCongrats] = useState(false);
+const showModal = () => {
+  setCongrats(true);
+  setTimeout(() => {
+    setCongrats(false);
+  }, 5000);
+};
 
 const images = new Array(3).fill('https://images2.alphacoders.com/597/597965.jpg', 'https://cdn.wallpapersafari.com/51/72/faVQir.jpg');
 
@@ -31,6 +37,8 @@ return (
 
 <View style={styles.HomeScreenContainer}>
 
+
+{/*  Header  */}
  <Appbar.Header style={styles.header}>
        <Modal
           animationType="fade"
@@ -59,39 +67,33 @@ return (
               </View>
              </View>
           </Modal>
-
       <Appbar.Content title="DashBoard" />
       <Appbar.Action icon="bell" onPress={_filter}/>
-
-        <Pressable
+      <Pressable
           onPress={() => setProfile(!Profile)}>
           <Image source={require('../../../assets/images/person.jpg') }
              style = {styles.HeaderIconImage}/>
         </Pressable>
       </Appbar.Header>
-
-      <ScrollView style={styles.ScrollContainer}
-          showsVerticalScrollIndicator={false}>
-
-        <Modal
-          animationType="fade"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            setModalVisible(!modalVisible);
-          }}>
+{/*  Header Ends here */}
+<ScrollView style={styles.ScrollContainer}          showsVerticalScrollIndicator={false}>
 
 
-{/* Model  */}
-        <View style={styles.ModelBoxContainer}>
-        <Image style = {styles.RoundModelImage}
-        source={require('../../../assets/images/pubg.png')}
-        />
+{/*   Model for Register */}
+    <Modal
+      animationType="fade"
+      transparent={true}
+      visible={modalVisible}
+      onRequestClose={() => {
+      setModalVisible(!modalVisible);
+      }}>
+      <View style={styles.ModelBoxContainer}>
+      <Image style = {styles.RoundModelImage}
+      source={require('../../../assets/images/pubg.png')}/>
         <Pressable  style={styles.CrossIcon}
-          onPress={() => setModalVisible(!modalVisible)}>
-          <Image source={require('../../../assets/icons/cross.png')}
-            style={styles.CrossIconImage}
-          />
+        onPress={() => setModalVisible(!modalVisible)}>
+        <Image source={require('../../../assets/icons/cross.png')}
+        style={styles.CrossIconImage}/>
         </Pressable>
           <View style={styles.ModelBox}>
             <View style={styles.ModelInputs}>
@@ -102,20 +104,49 @@ return (
               </View>
 
               <View style = {styles.RegisterButton}>
-              <TouchableOpacity 
-                onPress={() => { navigation.navigate("Game1")
-                toggleModal();}}>
+              <TouchableOpacity
+              onPress={() => {setCongrats(true)
+              setTimeout(() => {
+              setCongrats(false);}, 3000);
+              toggleModal();}}>
+             {/* onPress={() => { navigation.navigate('Game1') */}
               <Text style={styles.RegisterBtn}>Register</Text>
               </TouchableOpacity>
-              </View>
-              
+              </View>   
+            </View>
           </View>
-      </View>
+      </Modal>
+{/*  Model Ends here */}
+
+
+
+{/*  Model for Congrats */}
+
+    <Modal
+        animationType="fade"
+        transparent={true}
+        visible={Congrats}
+        onRequestClose={() => { console.log("CLOSED") }}>
+        <View  style = {styles.CongratsModelBox}>
+            <View>
+              <Text style = {styles.CongratsTitle}>
+              Congratulations</Text>
+            </View>
+            <View>
+              <Text style = {styles.CongratsText}>
+              You have registered successfully!</Text>
+            </View>
+        </View>
     </Modal>
+
+{/* Model ends here */}
+
+
+
+
 
 
 {/* swiper */}
-
 <View style={styles.scrollContainer}>
         <ScrollView
           horizontal={true}
@@ -163,97 +194,82 @@ return (
           })}
         </View>
       </View>
+{/* Swiper Ends here */}
 
 
-{/* -------- */}
+    <Pressable style={styles.GameContainer}
+      onPress={() => setModalVisible(true)}>
+      <Image source={require('../../../assets/images/nfs2.jpg')} 
+      style={styles.GameImage}/>
+      <Text style={styles.GameText}>Play Now</Text>
+    </Pressable>
 
-
-      <Pressable style={styles.GameContainer}
-        onPress={() => setModalVisible(true)}>
-        <Image source={require('../../../assets/images/nfs2.jpg')} 
-        style={styles.GameImage}
-        />
-        <Text style={styles.GameText}
-        >Play Now</Text>
-        </Pressable>
-
-      <Pressable style={styles.GameContainer}
+    <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
         <Image source={require('../../../assets/images/nfs2.jpg')} 
-        style={styles.GameImage}
-        />
-        <Text style={styles.GameText}
-        >Play Now</Text>
-        </Pressable>
+        style={styles.GameImage}/>
+        <Text style={styles.GameText}>Play Now</Text>
+    </Pressable>
 
-        <Pressable style={styles.GameContainer}
+     <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
         <Image source={require('../../../assets/images/pubg.png')} 
-        style={styles.GameImage}
-        />
-        <Text style={styles.GameText}
-        >Starts in 05:03</Text>
-        </Pressable>
+        style={styles.GameImage}/>
+        <Text style={styles.GameText}>Starts in 05:03</Text>
+     </Pressable>
 
-        <Pressable style={styles.GameContainer}
+    <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
         <Image source={require('../../../assets/images/carrace1.jpg')} 
-        style={styles.GameImage}
-        />
-        <Text style={styles.GameText}
-        >In Match</Text>
-        </Pressable>
+        style={styles.GameImage}/>
+        <Text style={styles.GameText}>In Match</Text>
+    </Pressable>
 
-        <Pressable style={styles.GameContainer}
+    <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
         <Image source={require('../../../assets/images/pubgm.jpg')} 
-        style={styles.GameImage}
-        />
-        <Text style={styles.GameText}
-        >Starts in 10:03</Text>
-        </Pressable>
+        style={styles.GameImage}/>
+        <Text style={styles.GameText}>Starts in 10:03</Text>
+    </Pressable>
 
-        <Pressable style={styles.GameContainer}
+      <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
         <Image source={require('../../../assets/images/nfs2.jpg')} 
-        style={styles.GameImage}
-        />
-        <Text style={styles.GameText}
-        >In Match</Text>
-        </Pressable>
+        style={styles.GameImage}/>
+        <Text style={styles.GameText}>In Match</Text>
+      </Pressable>
 
-        <Pressable style={styles.GameContainer}
+      <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
         <Image source={require('../../../assets/images/carrace2.jpg')} 
-        style={styles.GameImage}
-        />
-        <Text style={styles.GameText}
-        >Starts in 15:03</Text>
-        </Pressable>
+        style={styles.GameImage}/>
+        <Text style={styles.GameText}>Starts in 15:03</Text>
+      </Pressable>
 
 
-        <Pressable style={styles.GameContainer}
+      <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
         <Image source={require('../../../assets/images/pubg.png')} 
-        style={styles.GameImage}
-        />
-        <Text style={styles.GameText}
-        >Play Now</Text>
-        </Pressable>
+        style={styles.GameImage}/>
+        <Text style={styles.GameText}>Play Now</Text>
+      </Pressable>
 
 
-        <Pressable style={styles.GameContainer}
+      <Pressable style={styles.GameContainer}
         onPress={() => setModalVisible(true)}> 
         <Image source={require('../../../assets/images/carrace3.webp')} 
-        style={styles.GameImage}
-        />
-        <Text style={styles.GameText}
-        >Starts in 26:03</Text>
-        </Pressable>
+        style={styles.GameImage}/>
+        <Text style={styles.GameText}>Starts in 26:03</Text>
+      </Pressable>
       </ScrollView>
     </View>
   );
 };
+
+
+
+//  Styling
+
 
 const styles = StyleSheet.create({
   
@@ -405,9 +421,27 @@ Bannercontainer: {
       color:'white',
     },
 
+    //  Congrats Model 
 
+    CongratsModelBox:{
+      width: '70%',
+      height: '10%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'white',
+      marginHorizontal: '70px',
+      marginVertical: '150px',
+      borderRadius: 30,
+    }, 
+    CongratsTitle:{
+      fontSize: 15,
+    },
+    CongratsText:{
+      color: 'black',
+      fontSize: 12,
+    },
     //  swiper
-
     container: {
       flex: 1,
       alignItems: "center",
